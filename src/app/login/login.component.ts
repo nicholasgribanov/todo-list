@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   handelLogin(): void {
     if (this.username === "Igor" && this.password === "Niva") {
       this.invalidCredentials = false;
-      this.router.navigate(['welcome']);
+      this.router.navigate(['welcome', this.username]);
     }
     else {
       this.invalidCredentials = true;
