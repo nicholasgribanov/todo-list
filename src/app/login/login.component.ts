@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -6,14 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username = "";
+  password = "";
+  errorMessage = "Invalid Credentials";
+  invalidCredentials = false;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
   handelLogin(): void {
-    console.log("Works login!")
-}
+    this.invalidCredentials = !(this.username === "Igor" && this.password === "Niva");
+  }
 
 }
