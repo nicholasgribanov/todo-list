@@ -6,3 +6,16 @@
   <div>You can manage your todo's list <a routerLink="/todos">here</a></div>
 
 </div>
+
+<div class="container">
+
+  <div>Welcome message from backend</div>
+  <button (click)="getWelcomeMessage()" class="btn btn-success">Get message</button>
+
+</div>
+
+<div class="container" *ngIf="welcomeMessageFromBackend">
+
+  <h2>Your message from backend:</h2>
+  {{welcomeMessageFromBackend}}
+</div>
