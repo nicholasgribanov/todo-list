@@ -21,11 +21,16 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage(): void {
-    this.service.executeHelloWorldService().subscribe(response => this.handleSuccessResponse(response));
+    this.service.executeHelloWorldService().subscribe(
+      response => this.handleSuccessResponse(response),
+      error => this.handleError(error));
   }
 
   handleSuccessResponse(response): void {
     this.welcomeMessageFromBackend = response.message;
   }
 
+  private handleError(error: any): void {
+    this.welcomeMessageFromBackend = error.error.message;
+  }
 }
