@@ -26,6 +26,12 @@ export class WelcomeComponent implements OnInit {
       error => this.handleError(error));
   }
 
+  getWelcomeMessageWithName(): void {
+    this.service.executeHelloWorldServiceWithName(this.name).subscribe(
+      response => this.handleSuccessResponse(response),
+      error => this.handleError(error));
+  }
+
   handleSuccessResponse(response): void {
     this.welcomeMessageFromBackend = response.message;
   }

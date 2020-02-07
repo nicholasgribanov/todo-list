@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 
 
-
 export class HelloWorld {
   constructor(public message: string) {
   }
@@ -21,5 +20,9 @@ export class HelloWorldServiceService {
 
   executeHelloWorldService(): Observable<HelloWorld> {
     return this.http.get<HelloWorld>("http://localhost:8081/hello");
+  }
+
+  executeHelloWorldServiceWithName(name: string): Observable<HelloWorld> {
+    return this.http.get<HelloWorld>(`http://localhost:8081/hello/${name}`);
   }
 }
