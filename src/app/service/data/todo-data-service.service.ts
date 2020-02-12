@@ -21,4 +21,8 @@ export class TodoDataServiceService {
   deleteTodo(username: string, id: number): Observable {
     return this.http.delete(`http://localhost:8081/users/${username}/todos/${id}`);
   }
+
+  fetchTodo(username: string, id: number): Observable<Todo> {
+    return this.http.get<Todo>(`http://localhost:8081/users/${username}/todos/${id}`);
+  }
 }
