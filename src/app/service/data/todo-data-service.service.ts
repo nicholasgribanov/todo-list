@@ -25,4 +25,12 @@ export class TodoDataServiceService {
   fetchTodo(username: string, id: number): Observable<Todo> {
     return this.http.get<Todo>(`http://localhost:8081/users/${username}/todos/${id}`);
   }
+
+  updateTodo(username: string, id: number, todo: Todo): Observable<Todo> {
+    return this.http.put(`http://localhost:8081/users/${username}/todos/${id}`, todo);
+  }
+
+  insertTodo(username: string, todo: Todo): Observable<Todo> {
+    return this.http.post(`http://localhost:8081/users/${username}/todos`, todo);
+  }
 }
