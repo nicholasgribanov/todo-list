@@ -18,8 +18,8 @@ export class TodoDataServiceService {
     return this.http.get<Todo[]>(`http://localhost:8081/users/${username}/todos`);
   }
 
-  deleteTodo(username: string, id: number): Observable {
-    return this.http.delete(`http://localhost:8081/users/${username}/todos/${id}`);
+  deleteTodo(username: string, id: number): Observable<Todo> {
+    return this.http.delete<Todo>(`http://localhost:8081/users/${username}/todos/${id}`);
   }
 
   fetchTodo(username: string, id: number): Observable<Todo> {
@@ -27,10 +27,10 @@ export class TodoDataServiceService {
   }
 
   updateTodo(username: string, id: number, todo: Todo): Observable<Todo> {
-    return this.http.put(`http://localhost:8081/users/${username}/todos/${id}`, todo);
+    return this.http.put<Todo>(`http://localhost:8081/users/${username}/todos/${id}`, todo);
   }
 
   insertTodo(username: string, todo: Todo): Observable<Todo> {
-    return this.http.post(`http://localhost:8081/users/${username}/todos`, todo);
+    return this.http.post<Todo>(`http://localhost:8081/users/${username}/todos`, todo);
   }
 }
