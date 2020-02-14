@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {API_URL} from "../../app.constants";
 
 
 export class HelloWorld {
@@ -19,10 +20,10 @@ export class HelloWorldServiceService {
   }
 
   executeHelloWorldService(): Observable<HelloWorld> {
-    return this.http.get<HelloWorld>("http://localhost:8081/hello");
+    return this.http.get<HelloWorld>(`${API_URL}/hello`);
   }
 
   executeHelloWorldServiceWithName(name: string): Observable<HelloWorld> {
-    return this.http.get<HelloWorld>(`http://localhost:8081/hello/${name}`);
+    return this.http.get<HelloWorld>(`${API_URL}/hello/${name}`);
   }
 }
