@@ -50,4 +50,21 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  handelLoginJWTAuth(): void {
+
+    this.basicAuthentication.executeJWTAuth(this.username, this.password)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.invalidCredentials = false;
+          this.router.navigate(['welcome', this.username]);
+        },
+        error => {
+          console.log(error);
+          this.invalidCredentials = true;
+
+        }
+      );
+  }
+
 }
